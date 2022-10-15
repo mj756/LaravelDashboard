@@ -443,7 +443,20 @@ try{
        
     }
 
+    public function sendScheduledEmail(){
 
+            Log::debug('testing schedule');
+         /*$result=User::select('name','email')->get();  
+          foreach ($result as $user) {
+          $emailDetail=new EmailDetail();
+          $emailDetail->viewName='emails/forgot';
+          $emailDetail->toAddress=$user->email;
+          $emailDetail->subject='Password reset';
+          $emailDetail->viewPayload=['password'=>'000000','name'=>$user->name];  
+          dispatch(new SendEmailJob($emailDetail));
+          
+          }*/
+    }
     private function sendPushMessage($message){
         try{
 $registrationIds = UserDevice::select('fcmToken')->where('userId',$message->receiverId)->get()->pluck('fcmToken')->toArray();
@@ -469,10 +482,9 @@ $registrationIds = UserDevice::select('fcmToken')->where('userId',$message->rece
        return response()->toJson(0,null);
         }catch(Exception $e){
              return response()->error();
-        }
-
-       
+        }    
     }
+
 
 /* #endregion */
 

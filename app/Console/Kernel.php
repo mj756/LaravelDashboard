@@ -24,7 +24,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-         $schedule->command('user:license_expire')->saturdays()->between('7:00', '22:00');
+         $schedule->command('user:license_expire')
+         ->everyMinute()
+         //->saturdays()
+         ->between('7:00', '22:00')
+         ->onOneServer()
+         ->withoutOverlapping()
+         ->runInBackground();
     }
 
     /**

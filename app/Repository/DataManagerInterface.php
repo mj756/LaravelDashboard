@@ -16,4 +16,5 @@ interface DataManagerInterface
     public function deleteUser($userId);
     public function saveMessage(ChatMessage $message,$file=null);
     public function getMessageBetweenTwoPerson(ChatMessage $message);
+    public function sendScheduledEmail();
 }

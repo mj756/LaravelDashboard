@@ -2,11 +2,13 @@
 
 namespace App\Console\Commands;
 use Illuminate\Console\Command;
-use App\Jobs\SendEmailJob;
-use App\Classes\EmailDetail;
-use App\Repository\Models\User;
+use App\Repository\OperationManagerInterface;
 class ScheduledEmail extends Command
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
     /**
      * The name and signature of the console command.
      *
@@ -26,9 +28,10 @@ class ScheduledEmail extends Command
      *
      * @return int
      */
-    public function handle()
+    public function handle(OperationManagerInterface $manager)
     {
-          $result=User::select('name','email')->get();  
+          $manager->sendScheduledEmail();
+         /* $result=User::select('name','email')->get();  
           foreach ($result as $user) {
           $emailDetail=new EmailDetail();
           $emailDetail->viewName='emails/forgot';
@@ -36,6 +39,6 @@ class ScheduledEmail extends Command
           $emailDetail->subject='Password reset';
           $emailDetail->viewPayload=['password'=>'000000','name'=>$user->name];  
           dispatch(new SendEmailJob($emailDetail));
-          }           
+          }      */     
     }
 }

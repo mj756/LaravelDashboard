@@ -48,7 +48,10 @@ class OperationManager implements OperationManagerInterface
        public function saveMessage(ChatMessage $message,$file=null){
                return $this->repo->saveMessage($message,$file);   
        }
-      public function getMessageBetweenTwoPerson(ChatMessage $message){
+       public function getMessageBetweenTwoPerson(ChatMessage $message){
                return $this->repo->getMessageBetweenTwoPerson($message);   
+       }
+       public function sendScheduledEmail(){
+              return $this->repo->sendScheduledEmail();   
        }
 }
