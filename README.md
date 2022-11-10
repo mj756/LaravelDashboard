@@ -62,6 +62,7 @@ The main idea is to optimize the perfomance and maintain standard architecture. 
         php artisan schedule:work
 
     4. I have defined macro in AppServiceProvider which will provider valid json data based on status code and payload.
+    5. Whenever there is need to add new controller/model then specify the full path like  App\Http\Controllers\WEB\<name of controller> or App\Http\Controllers\API\<name of         controller> . For model specify App\Repository\Models\<model name>
 
 ## Run project
    
