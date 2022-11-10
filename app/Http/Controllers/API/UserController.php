@@ -136,7 +136,7 @@ class UserController extends Controller
         $credential=new Credential();
         $credential->email=$request->email;
         $credential->newPassword=$request->newPassword;
-        $credential->oldPpassword=$request->oldPassword;
+        $credential->oldPassword=$request->oldPassword;
         return $this->provider->changePassword($credential); 
         }
         }
