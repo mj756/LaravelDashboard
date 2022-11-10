@@ -5,6 +5,7 @@
 ## About
 
 This is micro architecture laravel app which includes dependency injection,singleton object pattern.Email configuration using Jobs and Queue. Scheduled task for sending email, custom error handling and much more.
+The main idea is to optimize the perfomance and maintain standard architecture. In controller we only write code related validation no any business logic should be write in controller. The DataManager class will handle all database related operation, perform business logic and return data to controller.
 
 ## Dependency Injection
 
@@ -15,7 +16,7 @@ This is micro architecture laravel app which includes dependency injection,singl
 
 ## DataManager class
 
-    The DataManager class is one and only class in entire app which interact with database. Thus data pass from controller to DataManager via layer
+    The DataManager class is one and only class in entire app which interact with database, perform business logic. Thus data pass from controller to DataManager via layer
     like
 
     Controller->OperationManagerInterface->OperationManager->DataManagerInterface->DataManager
