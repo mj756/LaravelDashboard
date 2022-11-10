@@ -63,11 +63,12 @@ This is micro architecture laravel app which includes dependency injection,singl
     4. I have defined macro in AppServiceProvider which will provider valid json data based on status code and payload.
 
 ## Run project
-
+   
     1.Rename .env.example file to .env
-    2.php artisan migrate:fresh
-    3.php artisan passport:client --personal
-    4.php artisan route:cache
-    5.php artisan config:cache
-    6.php artisan optimize
-    7.php artisan serve
+    2.composer install
+    3.php artisan migrate:fresh
+    4.php artisan passport:client --personal
+    5.php artisan route:cache
+    6.php artisan config:cache
+    7.php artisan optimize
+    8.php artisan serve
