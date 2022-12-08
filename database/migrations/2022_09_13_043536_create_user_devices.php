@@ -16,10 +16,11 @@ return new class extends Migration
     {
         Schema::create('user_devices', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('userId')->foreign('userId')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('userId');
             $table->text ('token');
             $table->dateTime('insertedOn')->default(Carbon::now()->utc()->toDateTimeString());
             $table->text ('fcmToken');
+            $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

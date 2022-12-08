@@ -16,11 +16,12 @@ return new class extends Migration
     {
        Schema::create('media_messages', function (Blueprint $table) {
             $table->id();
-            $table->integer('messageId');
+            $table->unsignedBigInteger('messageId');
             $table->string('mimeType');
             $table->string('size');
             $table->string('name');
-            $table->dateTime('insertedOn')->default(Carbon::now()->toDateTimeString());  
+            $table->dateTime('insertedOn');
+           $table->foreign('messageId')->references('id')->on('chat_messages')->onDelete('cascade');
         });
     }
 

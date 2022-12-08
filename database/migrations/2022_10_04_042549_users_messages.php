@@ -16,13 +16,15 @@ return new class extends Migration
     {
         Schema::create('chat_messages', function (Blueprint $table) {
             $table->id();
-            $table->string('senderId');
-            $table->string('receiverId');
+            $table->unsignedBigInteger('senderId');
+            $table->unsignedBigInteger('receiverId');
             $table->string('messageType');
             $table->string('message');
             $table->string('media')->nullable();
-            $table->dateTime('insertedOn')->default(Carbon::now()->toDateTimeString());
+            $table->dateTime('insertedOn');
             $table->boolean('isDeleted')->default(false);
+            $table->foreign('senderId')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('receiverId')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
